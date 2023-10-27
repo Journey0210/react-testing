@@ -9,7 +9,9 @@
 
 ## Jest
 
-    - 테스트 러너
+    - Test runner
+
+    https://github.com/testing-library/jest-dom
 
 ## TDD (Test Driven Development)
 
