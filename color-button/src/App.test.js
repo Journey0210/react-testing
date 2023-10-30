@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
+import { replaceCamelwithSpaces } from "./App";
 
 test("button has coreect initial color, update when clicked", () => {
   //render virtual DOM
@@ -73,4 +74,19 @@ test("button is gray when disabled", () => {
   //re-enable button
   fireEvent.click(checkbox);
   expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
+});
+
+//describe 문은 test문을 grouping 할 수 있다.
+describe("spaces before camel-case capital letters", () => {
+  test("Works for no inner capital letters", () => {
+    expect(replaceCamelwithSpaces("Red")).toBe("Red");
+  });
+
+  test("Works for one  inner capital letters", () => {
+    expect(replaceCamelwithSpaces("MidnightBlue")).toBe("Midnight Blue");
+  });
+
+  test("Works for multiple inner capital letters", () => {
+    expect(replaceCamelwithSpaces("MediumVioletRed")).toBe("Medium Violet Red");
+  });
 });

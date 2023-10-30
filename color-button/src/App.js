@@ -2,6 +2,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 
+export const replaceCamelwithSpaces = (colorName) => {
+  let arr = [...colorName];
+  return arr
+    .map((s) => (s === s.toUpperCase() && arr.indexOf(s) !== 0 ? ` ${s}` : s))
+    .join("");
+};
+
 function App() {
   const [buttonColor, setButtonColor] = useState("red");
 
