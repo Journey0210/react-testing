@@ -7,19 +7,21 @@ test("button has coreect initial color, update when clicked", () => {
   render(<App />);
 
   //find an element with a role of button and text of "Change to blue"
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const colorButton = screen.getByRole("button", {
+    name: "Change to Midnight Blue",
+  });
 
   //expect the background color to be red
-  expect(colorButton).toHaveStyle({ backgroundColor: "red" });
+  expect(colorButton).toHaveStyle({ backgroundColor: "Medium Violet Red" });
 
   //click button
   fireEvent.click(colorButton);
 
   //expect the background color to be blue
-  expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
+  expect(colorButton).toHaveStyle({ backgroundColor: "Midnight Blue" });
 
   //expoect the button text to be "Change to red"
-  expect(colorButton).toHaveTextContent("Change to red");
+  expect(colorButton).toHaveTextContent("Change to Medium Violet Red");
 });
 
 test("initial conditions", () => {
@@ -27,7 +29,9 @@ test("initial conditions", () => {
   render(<App />);
 
   //check that the button starts out enabled
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const colorButton = screen.getByRole("button", {
+    name: "Change to Midnight Blue",
+  });
   expect(colorButton).toBeEnabled();
 
   //check that the checkbox starts out unchecked
@@ -38,7 +42,9 @@ test("initial conditions", () => {
 test("checkbox disables button on first click and enables on second click", () => {
   render(<App />);
   const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const colorButton = screen.getByRole("button", {
+    name: "Change to Midnight Blue",
+  });
 
   expect(checkbox).not.toBeChecked();
 
@@ -51,7 +57,9 @@ test("checkbox disables button on first click and enables on second click", () =
 
 test("button is gray when disabled", () => {
   render(<App />);
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const colorButton = screen.getByRole("button", {
+    name: "Change to Midnight Blue",
+  });
   const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
 
   //disable button
@@ -62,7 +70,7 @@ test("button is gray when disabled", () => {
   //re-enable button
   fireEvent.click(checkbox);
   expect(colorButton).toBeEnabled();
-  expect(colorButton).toHaveStyle({ backgroundColor: "red" });
+  expect(colorButton).toHaveStyle({ backgroundColor: "Medium Violet Red" });
 
   //change button to blue
   fireEvent.click(colorButton);
@@ -73,7 +81,7 @@ test("button is gray when disabled", () => {
 
   //re-enable button
   fireEvent.click(checkbox);
-  expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
+  expect(colorButton).toHaveStyle({ backgroundColor: "MidnightBlue" });
 });
 
 //describe 문은 test문을 grouping 할 수 있다.
