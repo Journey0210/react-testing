@@ -19,6 +19,3 @@
     - red-green testing
     - part of the coding process, not a "chore" to do at the end
 
-
-## Reference
-    [https://testing-library.com/docs/react-testing-library/cheatsheet/](https://testing-library.com/docs/react-testing-library/cheatsheet/)
